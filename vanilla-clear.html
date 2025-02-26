@@ -18,7 +18,7 @@
       src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
       integrity="sha256-aS0B0wnsaDByLfE16h4MDCP1fQFccysd1YWOcV+gbBo="
       crossorigin="anonymous"
-    ></scipt>
+    ></script>
   </head>
   <body>
     <div id="root"></div>
@@ -44,7 +44,6 @@
 
       function App() {
         const [output, setOutput] = useState(providers.outputMap);
-
 
         useEffect(() => {
           providers.onOutput(() => setOutput(providers.outputMap));
