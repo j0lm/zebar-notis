@@ -18,7 +18,7 @@
       src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
       integrity="sha256-aS0B0wnsaDByLfE16h4MDCP1fQFccysd1YWOcV+gbBo="
       crossorigin="anonymous"
-    ></script>
+    ></scipt>
   </head>
   <body>
     <div id="root"></div>
@@ -33,7 +33,7 @@
 		glazewm: {type: 'glazewm' },
         cpu: { type: "cpu" },
         date: { type: "date", formatting: "EEE d MMM t" },
-	systray: {type: "systray"},
+	systray: { type: "systray" },
         battery: { type: "battery" },
         memory: { type: "memory" },
         weather: { type: "weather" },
@@ -45,13 +45,14 @@
       function App() {
         const [output, setOutput] = useState(providers.outputMap);
 
+
         useEffect(() => {
           providers.onOutput(() => setOutput(providers.outputMap));
         }, []);
 
 	// Get notification status to show alert
 	function getNotificationStatus(systrayOutput) {
-	  return(<i> className="nf nf-md-message_alert_outline"></i>)
+	  return <i className="nf nf-md-message_alert_outline"></i>;
 	}
 
         // Get icon to show for current network status.
@@ -147,10 +148,8 @@
             <div className="right">
 	      {output.systray && (
                 <div className="systray">
-		 {output.systray.icons[0].id}
-		 // {getNotificationStatus(output.systray){
-		 // {output.systray.icons}
-		</div>
+	         {getNotificationStatus(output.systray)}
+                </div>
 	      )}
               {output.network && (
                 <div className="network">
