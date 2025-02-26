@@ -33,6 +33,7 @@
 		glazewm: {type: 'glazewm' },
         cpu: { type: "cpu" },
         date: { type: "date", formatting: "EEE d MMM t" },
+	systray: {type: "systray"},
         battery: { type: "battery" },
         memory: { type: "memory" },
         weather: { type: "weather" },
@@ -47,6 +48,11 @@
         useEffect(() => {
           providers.onOutput(() => setOutput(providers.outputMap));
         }, []);
+
+	// Get notification status to show alert
+	function getNotificationStatus(systrayOutput) {
+	  return(<i> className="nf nf-md-message_alert_outline"></i>)
+	}
 
         // Get icon to show for current network status.
         function getNetworkIcon(networkOutput) {
@@ -139,6 +145,13 @@
             <div className="center">{output.date?.formatted}</div>
 
             <div className="right">
+	      {output.systray && (
+                <div className="systray">
+		 {output.systray.icons[0].id}
+		 // {getNotificationStatus(output.systray){
+		 // {output.systray.icons}
+		</div>
+	      )}
               {output.network && (
                 <div className="network">
                   {getNetworkIcon(output.network)}
